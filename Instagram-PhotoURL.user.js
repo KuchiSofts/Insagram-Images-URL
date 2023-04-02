@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         Get Instagram Photo URL
 // @namespace    https://kuchi.be/
-// @version      1.3
+// @version      1.4
 // @description  Allow "Copy image link" on Instagram Photos
 // @author       Kuchi
-// @defaulticon     https://github.com/KuchiSofts/Insagram-Images-URL/raw/master/instagram.icon.png.png
-// @icon            https://github.com/KuchiSofts/Insagram-Images-URL/raw/master/instagram.icon.png.png
-// @updateURL       https://github.com/KuchiSofts/Insagram-Images-URL/raw/master/Instagram-PhotoURL.user.js
-// @downloadURL     https://github.com/KuchiSofts/Insagram-Images-URL/raw/master/Instagram-PhotoURL.user.js
+// @defaulticon     https://raw.githubusercontent.com/KuchiSofts/Insagram-Images-URL/main/instagram.icon.png
+// @icon            https://raw.githubusercontent.com/KuchiSofts/Insagram-Images-URL/main/instagram.icon.png
+// @updateURL       https://github.com/KuchiSofts/Insagram-Images-URL/raw/main/Instagram-PhotoURL.user.js
+// @downloadURL     https://github.com/KuchiSofts/Insagram-Images-URL/raw/main/Instagram-PhotoURL.user.js
 // @match        *://www.instagram.com/*
 // @match        *://instagram.com/*
-// @run-at          document-end
+// @run-at          document-start
 // @grant        none
 // @priority        9000
 // ==/UserScript==
@@ -52,14 +52,8 @@
     });
   }
 
-  // Wait for the DOM to fully load
-  window.addEventListener('DOMContentLoaded', () => {
-    setZIndex();
-  });
+    setInterval(function() {
+        setZIndex();
+    }, 100);
 
-  // Add a contextmenu event listener to the document
-  document.addEventListener('contextmenu', event => {
-    // Check if the right-click was on an image
-    setZIndex();
-  });
 })();
